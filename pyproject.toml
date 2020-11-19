@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "uuid62"
+version = "1.0.0"
+description = "UUID representation in Base62 with conversion utilities."
+authors = ["filippovitale"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "*"
+coala-bears = "*"
+flake8 = "*"
+ipykernel = "*"
+mypy = "*"
+yala = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
