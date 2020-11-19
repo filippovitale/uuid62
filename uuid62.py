@@ -20,11 +20,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 from functools import reduce
-from uuid import uuid4, UUID
+from uuid import UUID, uuid4
 
-BASE62_INDEX_TABLE = ("0123456789"
-                      "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                      "abcdefghijklmnopqrstuvwxyz")
+BASE62_INDEX_TABLE = (
+    "0123456789" "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "abcdefghijklmnopqrstuvwxyz"
+)
 BASE62_SIZE = len(BASE62_INDEX_TABLE)
 BASE62_INDEX_DICT = {c: i for i, c in enumerate(BASE62_INDEX_TABLE)}
 
@@ -44,11 +44,13 @@ def encode_base62_int(uuid_internal_state: int) -> str:
     return base62_reversed[::-1]  # reverse the string
 
 
-def decode_base62_int(uuid_base62: str) -> int:
+def decode_base62_int(uuid_base62_str: str) -> int:
     """Decode a Base62 string to an integer."""
     return reduce(
         lambda a, c: a + (BASE62_SIZE ** c[0]) * BASE62_INDEX_DICT.get(c[1]),
-        enumerate(uuid_base62[::-1]), 0)
+        enumerate(uuid_base62_str[::-1]),
+        0,
+    )
 
 
 def encode_base62(uuid: UUID) -> str:
@@ -56,9 +58,9 @@ def encode_base62(uuid: UUID) -> str:
     return encode_base62_int(uuid.int)
 
 
-def decode_base62(uuid_base62: str) -> UUID:
+def decode_base62(uuid_base62_str: str) -> UUID:
     """Decode the Base62 string representation to a UUID object."""
-    return UUID(int=decode_base62_int(uuid_base62))
+    return UUID(int=decode_base62_int(uuid_base62_str))
 
 
 def uuid_base62() -> str:

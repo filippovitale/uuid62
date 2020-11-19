@@ -9,11 +9,15 @@ python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "*"
-coala-bears = "*"
+black = { version = "*", allow-prereleases = true }
+# coala-bears = { version = "*", allow-prereleases = true }
 flake8 = "*"
+hypothesis = "*"
 ipykernel = "*"
 mypy = "*"
-yala = "*"
+pytest = "*"
+pytest-cov = "*"
+# yala = { version = "*", allow-prereleases = true }
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
