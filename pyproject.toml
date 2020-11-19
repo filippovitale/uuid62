@@ -5,18 +5,18 @@ description = "UUID representation in Base62 with conversion utilities."
 authors = ["filippovitale"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.6, ^3.7, ^3.8"
 
 [tool.poetry.dev-dependencies]
-autopep8 = "*"
-black = { version = "*", allow-prereleases = true }
-# coala-bears = { version = "*", allow-prereleases = true }
-flake8 = "*"
 hypothesis = "*"
-ipykernel = "*"
-mypy = "*"
 pytest = "*"
 pytest-cov = "*"
+# autopep8 = "*"
+# black = { version = "*", allow-prereleases = true }
+# coala-bears = { version = "*", allow-prereleases = true }
+# flake8 = "*"
+# ipykernel = "*"
+# mypy = "*"
 # yala = { version = "*", allow-prereleases = true }
 
 [build-system]
